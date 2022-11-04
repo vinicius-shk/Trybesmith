@@ -13,6 +13,11 @@ class ProductService {
     const created = await this.model.create(product);
     return created;
   }
+
+  public async getAll(): Promise<Product[]> {
+    const productsList = await this.model.getAll();
+    return productsList;
+  }
 }
 
 export default ProductService;
