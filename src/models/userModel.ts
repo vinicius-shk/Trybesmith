@@ -17,4 +17,13 @@ export default class UserModel {
     const { insertId } = result;
     return { id: insertId, ...user };
   }
+
+  public async login(user: IUser): Promise<IUser> {
+    const { username, password } = user;
+    const [[result]] = await this.connection.execute<IUser[] & ResultSetHeader>(
+      'SELECT id FROM Trybesmith.Users WHERE username = ? AND password = ?',
+      [username, password],
+    );
+    return result;
+  }
 }

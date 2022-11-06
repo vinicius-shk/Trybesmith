@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use('/products', productsRouter);
 
-app.use('/users', userRouter);
+app.use('/', userRouter);
 
 app.use('/orders', orderRouter);
 
