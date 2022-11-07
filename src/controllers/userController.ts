@@ -2,11 +2,17 @@ import { Request, Response } from 'express';
 
 import UserService from '../services/userService';
 import loginSchema from '../validations/loginSchema';
+import createUserSchema from '../validations/createUserSchema';
 
 class UserController {
   constructor(private userService = new UserService()) { }
 
   public create = async (req: Request, res: Response) => {
+    const { error } = createUserSchema.validate(req.body);
+    if (error) {
+      const httpError = error.message.includes('required') ? 400 : 422;
+      return res.status(httpError).json({ message: error.message });
+    }
     const token = await this.userService.create(req.body);
     res.status(201).json({ token });
   };
