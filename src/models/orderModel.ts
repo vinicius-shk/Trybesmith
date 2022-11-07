@@ -1,5 +1,7 @@
 import { Pool, ResultSetHeader } from 'mysql2/promise';
+
 import IOrder from '../interfaces/Order';
+import ICreateOrder from '../interfaces/CreateOrder';
 
 export default class OrderModel {
   public connection: Pool;
@@ -15,5 +17,23 @@ export default class OrderModel {
       GROUP BY o.id`,
     );
     return result;
+  }
+
+  public async create(body: ICreateOrder): Promise<boolean> {
+    const [{ insertId }] = await this.connection.execute<IOrder & ResultSetHeader>(
+      'INSERT INTO Trybesmith.Orders (userId) VALUES (?)',
+      [body.user?.id],
+    );
+    if (insertId) {
+      await Promise.all(body.productsIds.map(async (id) => {
+        await this.connection.execute<ResultSetHeader>(
+          `UPDATE Trybesmith.Products SET orderId = ?
+          WHERE id = ? ORDER BY id DESC LIMIT 1`,
+          [insertId, id],
+        );
+      }));
+      return true;
+    }
+    return false;
   }
 }
