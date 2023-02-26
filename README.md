@@ -1,10 +1,20 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# TrybeSmith
+
+Projeto de um sistema de vendas de objetos de forja artesanal. Projeto é uma API REST com validação via JWT.
+
+### Tecnologias utilizadas
+
+- **TypeScript**
+- **Express.js**
+- **MySQL**
+
+### Documentação
+
+Acesse a documentação online com casos de uso [aqui](https://documenter.getpostman.com/view/25780292/2s935uFztt)
+
+### Para rodar localmente
+
+
+Clone o projeto para o seu repositório local.
+Acesse a raiz do projeto e rode o comando `npm run dev` ou `npm start`
+Faça as requisições de acordo com a documentação na porta **3000**
