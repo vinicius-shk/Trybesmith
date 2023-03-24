@@ -25,4 +25,10 @@ Acesse a raiz do projeto e rode os comandos para instalar as dependências e sub
 cd Trybesmith && npm i && docker-compose up -d
 ```
 
+Acesse o container trybesmith e inicie o servico de backend com nodemon
+
+```
+docker exec trybesmith -it bash && npm run dev
+```
+
 Faça as requisições de acordo com a documentação na porta **3000**
