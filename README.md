@@ -16,5 +16,13 @@ Acesse a documentação online com casos de uso [aqui](https://documenter.getpos
 
 
 Clone o projeto para o seu repositório local.
-Acesse a raiz do projeto e rode o comando `npm i` e `npm run dev` ou `npm start` <br>
+```
+git clone git@github.com:vinicius-shk/Trybesmith.git
+```
+Acesse a raiz do projeto e rode os comandos para instalar as dependências e subir o Docker
+
+```
+cd Trybesmith && npm i && docker-compose up -d
+```
+
 Faça as requisições de acordo com a documentação na porta **3000**
